@@ -10,6 +10,9 @@ export default function Footer() {
             <p className="mt-4 font-body text-background/50 text-sm max-w-xs">
               Rathna Builders — Engineering trust through precision construction and legal expertise.
             </p>
+            <p className="mt-2 font-body text-background/40 text-xs">
+              3rd Cross Rd, Sengunthapuram, Jayankondam, Tamil Nadu 621802
+            </p>
           </div>
           
           <div className="flex gap-16">
@@ -24,13 +27,14 @@ export default function Footer() {
               </div>
             </div>
             <div>
-              <h4 className="font-heading text-sm uppercase tracking-[0.2em] text-accent mb-4">Legal</h4>
+              <h4 className="font-heading text-sm uppercase tracking-[0.2em] text-accent mb-4">Contact</h4>
               <div className="space-y-2">
-                {["Privacy Policy", "Terms of Service", "Disclaimer"].map((l) => (
-                  <a key={l} href="#" className="block font-body text-sm text-background/60 hover:text-accent transition-colors">
-                    {l}
-                  </a>
-                ))}
+                <a href="tel:+919524482646" className="block font-body text-sm text-background/60 hover:text-accent transition-colors">
+                  +91 95244 82646
+                </a>
+                <a href="mailto:tami.balaji@gmail.com" className="block font-body text-sm text-background/60 hover:text-accent transition-colors">
+                  tami.balaji@gmail.com
+                </a>
               </div>
             </div>
           </div>
@@ -41,7 +45,7 @@ export default function Footer() {
             © 2024 Rathna Builders. All rights reserved.
           </p>
           <p className="font-body text-xs text-background/40">
-            Er. T. Balraj — B.E. & L.L.B.
+            Er.T.Balraj.BE.,LLB
           </p>
         </div>
       </div>

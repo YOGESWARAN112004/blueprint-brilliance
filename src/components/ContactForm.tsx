@@ -2,6 +2,24 @@ import { useState } from "react";
 
 export default function ContactForm() {
   const [focusedField, setFocusedField] = useState<string | null>(null);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    project: "",
+    message: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const phone = "919524482646";
+    const text = `*New Inquiry - Rathna Builders*%0A%0A*Name:* ${encodeURIComponent(formData.name)}%0A*Email:* ${encodeURIComponent(formData.email)}%0A*Phone:* ${encodeURIComponent(formData.phone)}%0A*Project Type:* ${encodeURIComponent(formData.project)}%0A*Message:* ${encodeURIComponent(formData.message)}`;
+    window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
+  };
 
   return (
     <section className="py-32 bg-background" id="contact">
@@ -26,7 +44,16 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <p className="font-body text-sm text-muted-foreground">Location</p>
-                  <p className="font-body text-foreground">Tamil Nadu, India</p>
+                  <p className="font-body text-foreground">3rd Cross Rd, Sengunthapuram, Jayankondam, Tamil Nadu 621802</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-primary flex items-center justify-center">
+                  <span className="text-primary-foreground text-lg">📞</span>
+                </div>
+                <div>
+                  <p className="font-body text-sm text-muted-foreground">Phone</p>
+                  <a href="tel:+919524482646" className="font-body text-foreground hover:text-accent transition-colors">+91 95244 82646</a>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -35,13 +62,13 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <p className="font-body text-sm text-muted-foreground">Email</p>
-                  <p className="font-body text-foreground">contact@rathnabuilders.com</p>
+                  <a href="mailto:tami.balaji@gmail.com" className="font-body text-foreground hover:text-accent transition-colors">tami.balaji@gmail.com</a>
                 </div>
               </div>
             </div>
           </div>
 
-          <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+          <form className="space-y-8" onSubmit={handleSubmit}>
             {[
               { name: "name", label: "Your Name", type: "text" },
               { name: "email", label: "Email Address", type: "email" },
@@ -55,11 +82,15 @@ export default function ContactForm() {
                   {field.label}
                 </label>
                 <input
+                  name={field.name}
                   type={field.type}
+                  value={formData[field.name as keyof typeof formData]}
+                  onChange={handleChange}
                   className="w-full bg-transparent border-0 border-b-2 border-border px-0 py-3 font-body text-lg text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:border-accent transition-colors duration-300"
                   placeholder={`Enter your ${field.label.toLowerCase()}`}
                   onFocus={() => setFocusedField(field.name)}
                   onBlur={() => setFocusedField(null)}
+                  required
                 />
               </div>
             ))}
@@ -71,7 +102,10 @@ export default function ContactForm() {
                 Tell Us About Your Vision
               </label>
               <textarea
+                name="message"
                 rows={4}
+                value={formData.message}
+                onChange={handleChange}
                 className="w-full bg-transparent border-0 border-b-2 border-border px-0 py-3 font-body text-lg text-foreground placeholder:text-muted-foreground/40 focus:outline-none focus:border-accent transition-colors duration-300 resize-none"
                 placeholder="Describe your project..."
                 onFocus={() => setFocusedField("message")}

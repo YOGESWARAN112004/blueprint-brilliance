@@ -2,38 +2,44 @@ import { useRef, useState } from "react";
 
 const services = [
   {
-    title: "Structural Engineering",
-    description: "Load-bearing designs with seismic resilience and mathematical precision.",
+    title: "Total Contract",
+    description: "End-to-end construction solutions from foundation to finishing—delivered on time, on budget.",
     icon: "⬡",
     span: "md:col-span-2 md:row-span-2",
   },
   {
-    title: "Vasthu Consultation",
-    description: "Ancient spatial wisdom integrated with modern structural requirements.",
+    title: "Labour Contract",
+    description: "Skilled workforce management with quality supervision for every phase of construction.",
+    icon: "⚒",
+    span: "md:col-span-1",
+  },
+  {
+    title: "Renovation Work",
+    description: "Modernize and restore existing structures with precision engineering and fresh design.",
+    icon: "🔄",
+    span: "md:col-span-1",
+  },
+  {
+    title: "Municipality Approval",
+    description: "Streamlined permit processing and regulatory compliance with legal expertise.",
+    icon: "§",
+    span: "md:col-span-1 md:row-span-2",
+  },
+  {
+    title: "Consulting",
+    description: "Expert construction and legal consultation backed by B.E. & L.L.B. qualifications.",
     icon: "◎",
     span: "md:col-span-1",
   },
   {
-    title: "Legal Consultation",
-    description: "Construction law, land disputes, and regulatory compliance with L.L.B. expertise.",
-    icon: "§",
-    span: "md:col-span-1",
-  },
-  {
-    title: "Architectural Planning",
-    description: "From concept to blueprint—spaces that inspire and endure.",
+    title: "Planning & Design",
+    description: "From concept to blueprint—spaces that inspire, endure, and comply with all regulations.",
     icon: "△",
-    span: "md:col-span-1 md:row-span-2",
-  },
-  {
-    title: "Project Management",
-    description: "On-time, on-budget delivery with transparent milestone tracking.",
-    icon: "◇",
     span: "md:col-span-1",
   },
   {
-    title: "Quality Assurance",
-    description: "Multi-stage inspection protocols ensuring structural perfection.",
+    title: "Vasthu",
+    description: "Ancient spatial wisdom integrated with modern structural requirements for harmonious living.",
     icon: "✧",
     span: "md:col-span-1",
   },
@@ -101,7 +107,7 @@ export default function ServicesGrid() {
             What We Do
           </span>
           <h2 className="font-heading text-5xl md:text-6xl uppercase mt-4 text-foreground">
-            Services
+            Our Services
           </h2>
         </div>
         

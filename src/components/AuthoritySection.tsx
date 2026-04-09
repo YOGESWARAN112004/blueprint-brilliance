@@ -47,7 +47,7 @@ export default function AuthoritySection() {
                 your investment for generations.
               </p>
               <div className="mt-6 font-heading text-accent text-lg uppercase tracking-wider">
-                B.E. — Structural Engineering
+                Er.T.Balraj — B.E.
               </div>
             </div>
           </div>
@@ -68,7 +68,7 @@ export default function AuthoritySection() {
                 protected from groundbreaking to handover.
               </p>
               <div className="mt-6 font-heading text-primary text-lg uppercase tracking-wider">
-                L.L.B. — Construction Law
+                Er.T.Balraj — LLB
               </div>
             </div>
           </div>
