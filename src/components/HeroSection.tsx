@@ -13,7 +13,7 @@ export default function HeroSection() {
         <div className="max-w-4xl">
           <div className="mb-6">
             <span className="inline-block font-body text-sm tracking-[0.3em] uppercase text-accent font-medium opacity-0 animate-fade-up" style={{ animationDelay: "0.2s" }}>
-              Er. T. Balraj — B.E. & L.L.B.
+              Er. T. Balraj — B.E. & L.L.B. | Rathna Builders
             </span>
           </div>
           

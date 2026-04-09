@@ -35,7 +35,7 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <p className="font-body text-sm text-muted-foreground">Email</p>
-                  <p className="font-body text-foreground">contact@balrajengineering.com</p>
+                  <p className="font-body text-foreground">contact@rathnabuilders.com</p>
                 </div>
               </div>
             </div>

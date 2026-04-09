@@ -23,7 +23,7 @@ export default function Navbar() {
     }`}>
       <div className="container mx-auto px-6 lg:px-12 flex items-center justify-between h-20">
         <a href="#" className="font-heading text-xl uppercase tracking-[0.15em] text-foreground">
-          Balraj<span className="text-accent">.</span>
+          Rathna<span className="text-accent">.</span>
         </a>
         
         {/* Desktop */}
