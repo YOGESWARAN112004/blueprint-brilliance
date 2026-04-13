@@ -1,13 +1,14 @@
 import { useRef, useState } from "react";
 
 const projects = [
-  { title: "Lakeside Residences", type: "Residential", year: "2024", image: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80" },
-  { title: "Metro Commerce Hub", type: "Commercial", year: "2023", image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&q=80" },
-  { title: "Heritage Court", type: "Institutional", year: "2023", image: "https://images.unsplash.com/photo-1524230572899-a752b3835840?w=800&q=80" },
-  { title: "Green Valley Villas", type: "Residential", year: "2022", image: "https://images.unsplash.com/photo-1439337153520-7082a56a81f4?w=800&q=80" },
-  { title: "Skyline Tower", type: "Commercial", year: "2022", image: "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?w=800&q=80" },
-  { title: "Coastal Complex", type: "Mixed Use", year: "2021", image: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?w=800&q=80" },
+  { title: "Lakeside Residences", type: "Residential", year: "2024", image: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=75&fm=webp" },
+  { title: "Metro Commerce Hub", type: "Commercial", year: "2023", image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&q=75&fm=webp" },
+  { title: "Heritage Court", type: "Institutional", year: "2023", image: "https://images.unsplash.com/photo-1524230572899-a752b3835840?w=800&q=75&fm=webp" },
+  { title: "Green Valley Villas", type: "Residential", year: "2022", image: "https://images.unsplash.com/photo-1439337153520-7082a56a81f4?w=800&q=75&fm=webp" },
+  { title: "Skyline Tower", type: "Commercial", year: "2022", image: "https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?w=800&q=75&fm=webp" },
+  { title: "Coastal Complex", type: "Mixed Use", year: "2021", image: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?w=800&q=75&fm=webp" },
 ];
+
 
 function ProjectCard({ project }: { project: typeof projects[0] }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -21,10 +22,15 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
       <img
         src={project.image}
         alt={project.title}
+        width={800}
+        height={500}
+        loading="lazy"
+        decoding="async"
         className={`w-full h-full object-cover transition-all duration-700 ${
           isHovered ? "grayscale-0 scale-105" : "grayscale"
         }`}
       />
+
       
       {/* Overlay */}
       <div className={`absolute inset-0 transition-all duration-500 ${

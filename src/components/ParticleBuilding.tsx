@@ -44,8 +44,12 @@ function Particles() {
   const meshRef = useRef<THREE.Points>(null);
   const mouseRef = useRef({ x: 0, y: 0 });
   const { viewport } = useThree();
-  const count = 3000;
+  const count = 1500; // Reduced from 3000 for better performance
   const progressRef = useRef(0);
+  const frameSkip = useRef(0);
+  // Cache color objects to avoid GC pressure inside useFrame
+  const cobaltColor = useMemo(() => new THREE.Color("hsl(222, 68%, 33%)"), []);
+  const orangeColor = useMemo(() => new THREE.Color("hsl(20, 100%, 58%)"), []);
 
   const { positions, targetPositions, colors, initialPositions } = useMemo(() => {
     const target = generateBuildingPoints(count);
@@ -85,6 +89,9 @@ function Particles() {
 
   useFrame((_, delta) => {
     if (!meshRef.current) return;
+    // Throttle: skip every other frame to reduce main-thread work
+    frameSkip.current = (frameSkip.current + 1) % 2;
+    if (frameSkip.current !== 0) return;
     
     progressRef.current = Math.min(progressRef.current + delta * 0.3, 1);
     const p = progressRef.current;
@@ -93,8 +100,8 @@ function Particles() {
     const posArr = meshRef.current.geometry.attributes.position.array as Float32Array;
     const colArr = meshRef.current.geometry.attributes.color.array as Float32Array;
     
-    const cobalt = new THREE.Color("hsl(222, 68%, 33%)");
-    const orange = new THREE.Color("hsl(20, 100%, 58%)");
+    const cobalt = cobaltColor;
+    const orange = orangeColor;
     
     for (let i = 0; i < count; i++) {
       const i3 = i * 3;
